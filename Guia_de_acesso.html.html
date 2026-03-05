@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Guia de Acesso - Terapia Online</title>
+    <!-- Fontes do site da Fernanda -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400;0,500;1,400&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+    <!-- Ícones -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <style>
+        :root {
+            --primary: #6F8E8B;        /* Verde sálvia */
+            --secondary: #4F6D6A;      /* Verde profundo */
+            --bg-light: #F6F4EF;       /* Off-white quente */
+            --accent: #D9CFC1;         /* Areia */
+            --text-color: #2F2F2F;     /* Grafite */
+            --white: #FFFFFF;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            /* Comando mágico que obriga o navegador a imprimir/salvar PDF com as cores de fundo */
+            -webkit-print-color-adjust: exact !important;
+            print-color-adjust: exact !important;
+        }
+
+        body {
+            background-color: #e0e5e4; /* Fundo escuro atrás do "papel" */
+            font-family: 'Lora', serif;
+            color: var(--text-color);
+            line-height: 1.7;
+            padding: 40px 20px;
+            display: flex;
+            justify-content: center;
+        }
+
+        /* O formato da folha A4 */
+        .a4-document {
+            background-color: var(--bg-light); /* Off-white do site */
+            width: 100%;
+            max-width: 800px;
+            padding: 60px 80px;
+            border-radius: 12px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.1);
+            position: relative;
+            overflow: hidden;
+        }
+
+        /* Detalhe de design no topo */
+        .top-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 8px;
+            background: linear-gradient(90deg, var(--secondary), var(--primary));
+        }
+
+        /* Cabeçalho */
+        header {
+            text-align: center;
+            margin-bottom: 40px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid rgba(79, 109, 106, 0.2);
+        }
+
+        .logo-icon {
+            font-size: 2.5rem;
+            color: var(--primary);
+            margin-bottom: 15px;
+        }
+
+        h1 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 2.2rem;
+            margin-bottom: 10px;
+        }
+
+        .subtitle {
+            font-size: 1.1rem;
+            color: var(--primary);
+            font-style: italic;
+        }
+
+        /* Seções */
+        section {
+            margin-bottom: 35px;
+            background-color: var(--white);
+            padding: 25px 30px;
+            border-radius: 12px;
+            border-left: 4px solid var(--primary);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.03);
+        }
+
+        h2 {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 1.4rem;
+            margin-bottom: 15px;
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        h2 i {
+            color: var(--primary);
+            font-size: 1.3rem;
+            width: 30px;
+            text-align: center;
+        }
+
+        p {
+            margin-bottom: 15px;
+            font-size: 1.05rem;
+        }
+
+        ul {
+            list-style-position: inside;
+            margin-bottom: 15px;
+            padding-left: 10px;
+        }
+
+        li {
+            margin-bottom: 10px;
+            font-size: 1.05rem;
+        }
+
+        li i {
+            color: var(--primary);
+            font-size: 0.8rem;
+            margin-right: 8px;
+        }
+
+        /* Destaques (Tags e botões falsos) */
+        strong {
+            color: var(--secondary);
+            font-weight: 600;
+        }
+
+        .highlight-box {
+            background-color: rgba(111, 142, 139, 0.1);
+            padding: 20px;
+            border-radius: 8px;
+            margin-top: 30px;
+            text-align: center;
+            border: 1px dashed var(--primary);
+        }
+
+        .highlight-box p {
+            margin-bottom: 0;
+            font-style: italic;
+        }
+
+        /* Rodapé */
+        footer {
+            text-align: center;
+            margin-top: 50px;
+            padding-top: 30px;
+            border-top: 1px solid rgba(79, 109, 106, 0.2);
+        }
+
+        .footer-name {
+            font-family: 'Playfair Display', serif;
+            color: var(--secondary);
+            font-size: 1.3rem;
+            font-weight: bold;
+        }
+
+        .footer-crp {
+            font-size: 0.9rem;
+            color: var(--text-color);
+            opacity: 0.8;
+        }
+
+        /* Ajustes para Impressão (Salvar como PDF) */
+        @media print {
+            @page {
+                margin: 15mm 20mm; /* Define a margem branca natural do PDF */
+            }
+            body {
+                background-color: var(--bg-light) !important; /* Pinta TODO o fundo do PDF de areia */
+                padding: 0;
+            }
+            .a4-document {
+                box-shadow: none;
+                max-width: 100%;
+                padding: 0;
+                border-radius: 0;
+                background-color: transparent !important; /* Deixa o body cuidar do fundo */
+            }
+            .top-accent {
+                display: none; /* Esconde a barrinha absoluta para não bugar a página 2 */
+            }
+            header {
+                border-top: 8px solid var(--primary); /* Traz a barrinha colorida para dentro do cabeçalho */
+                padding-top: 35px;
+                margin-bottom: 30px;
+            }
+            section {
+                box-shadow: none;
+                border: 1px solid rgba(0,0,0,0.1) !important;
+                border-left: 4px solid var(--primary) !important;
+                background-color: var(--white) !important; /* Mantém os cards brancos */
+                break-inside: avoid;
+                margin-bottom: 25px !important;
+            }
+            /* Removemos o empurrão do celular, o navegador alinhará perfeitamente dentro do fundo areia */
+            #celular {
+                margin-top: 17px !important; 
+				break-before: page;
+				break-inside: avoid;
+				page-break-inside: avoid;
+            }
+            .highlight-box {
+                background-color: rgba(111, 142, 139, 0.1) !important;
+                border: 1px dashed var(--primary) !important;
+				break-before: page;
+				break-inside: avoid;
+				page-break-inside: avoid;
+            }
+        }
+
+        /* Ajustes para Celular (Leitura em tela) */
+        @media (max-width: 768px) {
+            .a4-document {
+                padding: 40px 20px;
+            }
+            h1 {
+                font-size: 1.8rem;
+            }
+            section {
+                padding: 20px 15px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="a4-document">
+        <div class="top-accent"></div>
+
+        <header>
+            <i class="fa-solid fa-hand-holding-heart logo-icon"></i>
+            <h1>Guia de Acesso</h1>
+            <p class="subtitle">Sua Sessão de Terapia Online</p>
+        </header>
+
+        <p>Olá! Seja muito bem-vindo(a).</p>
+        <p>A decisão de iniciar a psicoterapia é um gesto de muito cuidado com você mesmo(a). Para que a nossa sessão online seja um espaço seguro, tranquilo e sem interrupções, preparei este breve guia passo a passo de como usaremos o <strong>Google Meet</strong>.</p>
+        <p>Não se preocupe se você não tem muita familiaridade com a tecnologia, o processo é bem simples!</p>
+
+        <section>
+            <h2><i class="fa-solid fa-headphones"></i> 1. Preparando o ambiente</h2>
+            <p>Para que você tenha a melhor experiência e total privacidade durante o nosso atendimento:</p>
+            <ul style="list-style-type: none;">
+                <li><i class="fa-solid fa-check"></i> <strong>Local tranquilo:</strong> Busque um ambiente privado onde você se sinta à vontade para falar sem ser interrompido(a).</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Fones de ouvido:</strong> Isso é essencial para garantir o sigilo da nossa conversa e melhora muito a qualidade do áudio.</li>
+                <li><i class="fa-solid fa-check"></i> <strong>Bateria e Internet:</strong> Verifique se o aparelho está com bateria suficiente e se a conexão Wi-Fi está estável.</li>
+            </ul>
+        </section>
+
+        <section id="celular">
+            <h2><i class="fa-solid fa-mobile-screen"></i> 2. Acesso pelo Celular</h2>
+            <p>Se você for fazer a sessão pelo smartphone (Android ou iPhone), precisaremos do aplicativo instalado:</p>
+            <ul style="list-style-type: none;">
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 1:</strong> Acesse a loja de aplicativos e baixe o aplicativo gratuito <strong>Google Meet</strong>.</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 2:</strong> Cerca de 5 minutos antes do horário marcado, clique no link da sessão que enviei pelo WhatsApp.</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 3:</strong> O Meet pedirá permissão para usar sua Câmera e Microfone. Clique em "Permitir".</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 4:</strong> Você verá sua imagem. Clique no botão azul <strong>"Pedir para participar"</strong>.</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 5:</strong> Aguarde um momento. Assim que eu estiver pronta, vou autorizar sua entrada.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h2><i class="fa-solid fa-laptop"></i> 3. Acesso pelo Computador</h2>
+            <p>Pelo computador ou notebook, você não precisa instalar nenhum programa, faremos tudo pelo navegador.</p>
+            <ul style="list-style-type: none;">
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 1:</strong> Minutos antes da sessão, clique no link que te enviei no WhatsApp Web ou e-mail.</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 2:</strong> Uma nova aba vai se abrir (recomendamos o uso do Google Chrome).</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 3:</strong> O navegador vai pedir para usar sua câmera e microfone. Clique em "Permitir".</li>
+                <li><i class="fa-solid fa-angle-right"></i> <strong>Passo 4:</strong> Verifique sua imagem e áudio e clique em <strong>"Pedir para participar"</strong>.</li>
+            </ul>
+        </section>
+
+        <div class="highlight-box">
+            <h2><i class="fa-regular fa-lightbulb"></i> Imprevistos acontecem!</h2>
+            <p>A tecnologia às vezes falha, e está tudo bem. Se a sua internet cair no meio da sessão ou fechar sozinho, não se desespere. Basta <strong>clicar no mesmo link novamente</strong> para retornar. Caso a instabilidade continue, me mande uma mensagem no WhatsApp e combinamos a melhor forma de continuar.</p>
+        </div>
+
+        <footer>
+            <p class="footer-name">Psicóloga Fernanda Dumangin</p>
+            <p class="footer-crp">Terapia Online • Cuidando da sua saúde mental</p>
+        </footer>
+
+    </div>
+
+</body>
+</html>
